@@ -6,7 +6,7 @@ Extract the data following the format:
 
 Example:
 Data: 'Invoice Date: 2023-07-16 Invoice Number: 12345 Total Amount: $1500.00'
-Extracted Data: {{ "date": "2023-07-16", "monto": "$1500.00", "facture_number": "12345" }}
+Output: {{ "date": "2023-07-16", "monto": "$1500.00", "facture_number": "12345" }}
 """
 
 prompt_template = """

@@ -29,7 +29,6 @@ def readDataSet(bigDataset: bool):
 
 def imageObjCreation(image_bytes):
     image_file = io.BytesIO(image_bytes)
-    print(image_file)
     # Open the image using PIL
     return Image.open(image_file)
 
@@ -75,7 +74,7 @@ def instructionsFormat(parser, textOcr):
     return system_instructions, prompt
 
 
-def LLMModelCall(prompt, system_instructions):
+def LLMModelCall(system_instructions, prompt):
     headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTZmNGZlZTUtZTU2ZS00NGU1LTliZTktMmExNTA3ZWFhMWQ5IiwidHlwZSI6ImFwaV90b2tlbiJ9.Bsw1LC2PXi2WND5Uqxh4CxIw-gD85ncDXDIrQgnN5I4"}
 
     #files = str({'file': ('image.png', df["image"][13]["bytes"])})
