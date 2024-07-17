@@ -21,6 +21,7 @@ from tqdm.auto import tqdm
 import constants as const
 from FactureModel import Facture
 
+import pinecone
 
 def readDataSet(bigDataset: bool):
     # Read the dataset on pandas and join train and test
@@ -152,3 +153,16 @@ def runQuery(query, index, model):
     print(f"{round(result['score'], 2)}: {result['metadata']}")
 
 
+def query_pinecone(query_vector):
+    # Initialize Pinecone
+    pinecone.init(api_key=const.PINECONE_API_KEY, environment='us-west1-gcp')  # Ajusta el entorno según corresponda
+
+    # Assuming you have already created an index
+    index_name = "quickstart"
+    index = pinecone.Index(index_name)
+
+    try:
+        response = index.query(queries=[query_vector], top_k=10)
+        return response['matches']
+    except Exception as e:
+        return str(e)
