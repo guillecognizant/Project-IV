@@ -1,3 +1,6 @@
+PINECONE_API_KEY = "5eb07bc6-207a-46bb-a931-dd4f094a032a"
+
+
 system_template = """
 You have to perform the task of extracting information from data.
 
